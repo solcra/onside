@@ -1,212 +1,653 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
-const developerName = "Carlos Granada";
+
 ---
 
-<div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
-	<main>
-		<section id="hero">
-			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
-			>
-			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
-			</h1>
-			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
-				<a href="https://astro.build/chat"
-					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
-						><path
-							fill="currentColor"
-							d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-						></path></svg
-					>
-				</a>
-			</section>
-		</section>
-	</main>
-
-	<a href="https://astro.build/blog/astro-6-beta/" id="news" class="box">
-		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-				fill="#111827"></path></svg
+<!-- TopNavBar Shell -->
+<nav
+	class="fixed top-0 w-full z-50 bg-[#0c1324] font-['Space_Grotesk'] tracking-tight flex justify-between items-center px-8 h-20 max-w-full mx-auto"
+>
+	<div class="flex items-center gap-4">
+		<img
+			alt="Onside Logo"
+			class="h-10 w-auto"
+			data-alt="high-tech minimalist logo for Onside tactical security with neon green crosshair element on dark background"
+			src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR8mxcFILqEpfL1TzCSjHCUrhevG3RoEpPHiVzfC1WcLYQnnyPlb9dsTahmGMb5DAx3LDNUs8MlKxIA-Pz8E5shHPlYFwgbrmmfJzDnEAwlN51DU4ZLhoPVLcGZ4LVk0piPg6dgW_vOX-W6Up3jv2XCIx1EWDyfN4PnAhTjJwxbcXz41asZpk-Ipr602TXRO6TSGXsmYOodP6P2_b_UxPRvwpSEMUkqOWk-NWa9CiBB3F0EJ589Snrm8x3Y3eGfD2u6b7ZXb5JNg"
+		/>
+		<span class="text-2xl font-bold text-[#00FF41]">Onside</span>
+	</div>
+	<div class="hidden md:flex gap-8 items-center">
+		<a
+			class="text-[#00FF41] border-b-2 border-[#00FF41] pb-1 hover:text-[#00FF41] transition-colors duration-300"
+			href="#que-hacemos">¿Qué hacemos?</a
 		>
-		<h2>What's New in Astro 6.0?</h2>
-		<p>
-			Redesigned dev server, fonts, live collections, built-in CSP support, and more! Click to
-			explore Astro 6.0's new features.
-		</p>
-		<div>{developerName}</div>
-	</a>
-</div>
-
-<style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
-
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
-	}
-
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
-
-	#hero {
-		display: flex;
-		align-items: start;
-		flex-direction: column;
-		justify-content: center;
-		padding: 16px;
-	}
-
-	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
-
-	#links {
-		display: flex;
-		gap: 16px;
-	}
-
-	#links a {
-		display: flex;
-		align-items: center;
-		padding: 10px 12px;
-		color: #111827;
-		text-decoration: none;
-		transition: color 0.2s;
-	}
-
-	#links a:hover {
-		color: rgb(78, 80, 86);
-	}
-
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
-	}
-
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
-
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
-
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin: 0;
-	}
-
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
-
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
-	}
-
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
-	}
-
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
-
-	#news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
-	}
-
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
-	}
-
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
-
-		#hero {
-			display: block;
-			padding-top: 10%;
-		}
-
-		#links {
-			flex-wrap: wrap;
-		}
-
-		#links a.button {
-			padding: 14px 18px;
-		}
-
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
-		}
-
-		h1 {
-			line-height: 1.5;
-		}
-	}
-</style>
+		<a
+			class="text-[#dce1fb] hover:text-[#00FF41] transition-colors duration-300"
+			href="#servicios">Servicios</a
+		>
+		<a
+			class="text-[#dce1fb] hover:text-[#00FF41] transition-colors duration-300"
+			href="#como-trabajamos">Cómo trabajamos</a
+		>
+	</div>
+	<div class="flex gap-4 items-center">
+		<button
+			class="hidden lg:block px-5 py-2 rounded-full border border-outline-variant text-[#dce1fb] hover:bg-[#191f31] transition-all duration-300"
+			>Hablar por WhatsApp</button
+		>
+		<button
+			class="px-6 py-2 bg-primary-container text-on-primary-container rounded-full font-bold glow-primary transition-all duration-200 active:scale-95"
+			>Solicitar auditoría</button
+		>
+	</div>
+</nav>
+<main class="pt-20">
+	<!-- Hero Section -->
+	<section class="relative min-h-[921px] flex items-center overflow-hidden">
+		<div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+			<div
+				class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#191f31_0%,#0c1324_100%)]"
+			>
+			</div>
+			<div
+				class="absolute inset-0 bg-repeat opacity-5"
+				style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCczSSiEjOzGShNlIEjAGS6P58P44wiQbYVvIo2s7hvc9BvxT1i733e9ZfOdfl0821C-6H5Y0uJF4U7InOTrdnVLTXDWQHNw_-BixID2j8U4FMbALgPc7k1Ewf6c1_WAE8LurdcJ4p-qjaHz1q6TXPD8PS3Vm-xH_DUYLYtjOx4605wS7T1FCJo-Fmh2yuEqITS5-6VTuhFmpBgaczNmWBqEmq2KBww03pG9h0CGZYd3AoFKHBq90UOwMuCIBz7KhzbZ6q7Z7BOgw');"
+			>
+			</div>
+			<!-- Tech visual element -->
+			<div
+				class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary-container/10 rounded-full animate-pulse"
+			>
+			</div>
+		</div>
+		<div
+			class="container mx-auto px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center"
+		>
+			<div class="space-y-8">
+				<div
+					class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full border border-outline-variant/20"
+				>
+					<span class="w-2 h-2 rounded-full bg-primary-container"
+					></span>
+					<span
+						class="text-xs font-mono uppercase tracking-widest text-on-surface-variant"
+						>Sistemas Tácticos Activos</span
+					>
+				</div>
+				<h1
+					class="text-5xl md:text-7xl font-bold leading-tight tracking-tighter text-on-surface"
+				>
+					Soluciones tecnológicas <span class="text-primary-container"
+						>seguras</span
+					> para tu negocio
+				</h1>
+				<p class="text-xl text-on-surface-variant max-w-xl">
+					Desarrollamos, protegemos y optimizamos tu infraestructura
+					digital con precisión táctica y estándares de ciberseguridad
+					militar.
+				</p>
+				<div class="flex flex-wrap gap-4 pt-4">
+					<button
+						class="px-8 py-4 bg-primary-container text-on-primary-container rounded-full font-bold text-lg glow-primary transition-all hover:-translate-y-1"
+					>
+						Solicitar auditoría
+					</button>
+					<button
+						class="px-8 py-4 bg-surface-container-highest text-on-surface rounded-full font-bold text-lg border border-outline-variant/30 transition-all hover:bg-surface-bright"
+					>
+						Hablar por WhatsApp
+					</button>
+				</div>
+			</div>
+			<div class="hidden lg:block relative">
+				<div
+					class="relative bg-surface-container rounded-xl p-4 border border-outline-variant/20 shadow-2xl"
+				>
+					<div
+						class="flex items-center gap-2 mb-4 border-b border-outline-variant/10 pb-2"
+					>
+						<div class="w-3 h-3 rounded-full bg-error"></div>
+						<div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+						<div class="w-3 h-3 rounded-full bg-primary-container">
+						</div>
+						<span
+							class="ml-4 text-xs font-mono text-on-surface-variant"
+							>onside_terminal --v1.0.4</span
+						>
+					</div>
+					<div
+						class="space-y-2 font-mono text-sm text-primary-container/80"
+					>
+						<p>&gt; Initializing security protocol...</p>
+						<p class="text-on-surface">
+							&gt; scan --target digital_asset
+						</p>
+						<p>&gt; Vulnerabilities found: 0</p>
+						<p>&gt; System optimization: 100%</p>
+						<p class="text-on-surface">&gt; status: PROTECTED</p>
+					</div>
+					<img
+						class="mt-6 rounded-lg w-full h-64 object-cover"
+						data-alt="sleek dark cybersecurity dashboard interface showing real-time network traffic and server health metrics in neon green and navy"
+						src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb49POIbmuXkPVWvwNvBCUm-yNOambj5Z8smjQZBLP0VG800PNBaOYTpGZjVLbvwGfipPDxasrvDEpkqxACWDKa_SiHYa6ECwJ5eNT7fdXiXiZfS8ztPasHRz8cBHjbV_hv4E5PLb-iNxGQIon4cjlABIXx69NR1IDH1lrcG2IS__nJ8H2CymjurvfDTtA07BXpF5c0O9RfKwwgCSdnthfyHoD_XSvzNjw_duT6rR3sgk6TWAEPowDToA_ltZY1PuZTGRkTLb3Yg"
+					/>
+				</div>
+				<!-- Decorative floating element -->
+				<div
+					class="absolute -bottom-8 -right-8 bg-primary-container/10 backdrop-blur-xl border border-primary-container/20 p-6 rounded-xl hidden xl:block"
+				>
+					<div class="flex items-center gap-4">
+						<span
+							class="material-symbols-outlined text-primary-container text-4xl"
+							>shield</span
+						>
+						<div>
+							<p class="text-2xl font-bold">99.9%</p>
+							<p
+								class="text-xs uppercase tracking-tighter opacity-70"
+							>
+								Uptime Garantizado
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ¿Qué hacemos? Bento Grid -->
+	<section class="py-24 bg-surface" id="que-hacemos">
+		<div class="container mx-auto px-8">
+			<div class="mb-16">
+				<h2 class="text-4xl font-bold mb-4">¿Qué hacemos?</h2>
+				<div class="h-1 w-20 bg-primary-container"></div>
+			</div>
+			<div class="grid md:grid-cols-3 gap-6">
+				<!-- Card 1: Seguridad -->
+				<div
+					class="bg-surface-container rounded-xl p-8 border border-transparent hover:border-primary-container/30 transition-all group"
+				>
+					<div
+						class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container group-hover:scale-110 transition-transform"
+					>
+						<span class="material-symbols-outlined"
+							>shield_lock</span
+						>
+					</div>
+					<h3 class="text-2xl font-bold mb-4">Seguridad</h3>
+					<ul class="space-y-3 text-on-surface-variant">
+						<li class="flex items-center gap-2">
+							<span
+								class="w-1.5 h-1.5 bg-primary-container rounded-full"
+							></span> Auditorías profundas
+						</li>
+						<li class="flex items-center gap-2">
+							<span
+								class="w-1.5 h-1.5 bg-primary-container rounded-full"
+							></span> Protección WordPress avanzada
+						</li>
+						<li class="flex items-center gap-2">
+							<span
+								class="w-1.5 h-1.5 bg-primary-container rounded-full"
+							></span> Prevención de ataques (WAF)
+						</li>
+					</ul>
+				</div>
+				<!-- Card 2: Desarrollo -->
+				<div
+					class="bg-surface-container rounded-xl p-8 border border-transparent hover:border-primary-container/30 transition-all group"
+				>
+					<div
+						class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container group-hover:scale-110 transition-transform"
+					>
+						<span class="material-symbols-outlined">code</span>
+					</div>
+					<h3 class="text-2xl font-bold mb-4">Desarrollo web</h3>
+					<ul class="space-y-3 text-on-surface-variant">
+						<li class="flex items-center gap-2">
+							<span
+								class="w-1.5 h-1.5 bg-primary-container rounded-full"
+							></span> Sitios rápidos y ultra-seguros
+						</li>
+						<li class="flex items-center gap-2">
+							<span
+								class="w-1.5 h-1.5 bg-primary-container rounded-full"
+							></span> WordPress &amp; Headless CMS
+						</li>
+						<li class="flex items-center gap-2">
+							<span
+								class="w-1.5 h-1.5 bg-primary-container rounded-full"
+							></span> E-commerce de alto rendimiento
+						</li>
+					</ul>
+				</div>
+				<!-- Card 3: Backend -->
+				<div
+					class="bg-surface-container rounded-xl p-8 border border-transparent hover:border-primary-container/30 transition-all group"
+				>
+					<div
+						class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container group-hover:scale-110 transition-transform"
+					>
+						<span class="material-symbols-outlined">terminal</span>
+					</div>
+					<h3 class="text-2xl font-bold mb-4">
+						Backend / automatización
+					</h3>
+					<ul class="space-y-3 text-on-surface-variant">
+						<li class="flex items-center gap-2">
+							<span
+								class="w-1.5 h-1.5 bg-primary-container rounded-full"
+							></span> APIs robustas
+						</li>
+						<li class="flex items-center gap-2">
+							<span
+								class="w-1.5 h-1.5 bg-primary-container rounded-full"
+							></span> Integraciones de terceros
+						</li>
+						<li class="flex items-center gap-2">
+							<span
+								class="w-1.5 h-1.5 bg-primary-container rounded-full"
+							></span> Sistemas a medida
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Problemas & Soluciones: Asymmetric Layout -->
+	<section class="py-24 bg-surface-container-low relative">
+		<div
+			class="container mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center"
+		>
+			<div class="relative order-2 lg:order-1">
+				<img
+					class="rounded-2xl w-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
+					data-alt="close-up of server racks with neon green fiber optic cables in a dimly lit data center, cinematic technical atmosphere"
+					src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5qQjmT5BmRSkQWYvhhEqXFNL129coDaDR7EUBLn2mZwqPrHgluCdLFPoN_fIvaHdKl7RKgVkcr2TtkdtxqVWWroq7sXvjG0Bbfw4NzEk8xuPexc1eAx9b3e6kIR3PxgowsNHi3G7DFlTdFPkbLRleyq0JIQQ4RFfXSrj7WWEc7aSBEU85Rauz7re1ySyCxY6lJqYwrbQsm1433YEvxp7OQvhwJR7IIiBbjFSykUMAclT0Nn2MrynRmZEWhzCNY3SuP2V9omm5_g"
+				/>
+				<div
+					class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"
+				>
+				</div>
+			</div>
+			<div class="space-y-8 order-1 lg:order-2">
+				<h2 class="text-4xl font-bold leading-tight">
+					¿Tu sitio es lento? <br />¿Te han hackeado?
+				</h2>
+				<p class="text-xl text-on-surface-variant">
+					Si tu web no vende o experimentas caídas constantes, estás
+					perdiendo dinero y reputación cada minuto. <strong
+						>Nosotros lo solucionamos.</strong
+					>
+				</p>
+				<div class="grid gap-4">
+					<div
+						class="flex items-center gap-4 p-4 bg-surface-container rounded-lg border-l-4 border-error"
+					>
+						<span class="material-symbols-outlined text-error"
+							>report</span
+						>
+						<span class="font-medium italic"
+							>"Me hackearon el WordPress y perdí acceso"</span
+						>
+					</div>
+					<div
+						class="flex items-center gap-4 p-4 bg-surface-container rounded-lg border-l-4 border-primary-container"
+					>
+						<span
+							class="material-symbols-outlined text-primary-container"
+							>verified</span
+						>
+						<span class="font-medium"
+							>Limpieza completa y blindaje en 24h.</span
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Diferencial Section -->
+	<section class="py-24 bg-surface">
+		<div class="container mx-auto px-8 text-center max-w-4xl">
+			<h2 class="text-4xl font-bold mb-6">
+				No solo desarrollamos… <br />protegemos tu negocio desde el
+				primer día
+			</h2>
+			<div class="flex flex-wrap justify-center gap-4 mt-12">
+				<div
+					class="px-6 py-3 bg-surface-container-high rounded-full flex items-center gap-3 border border-outline-variant/20"
+				>
+					<span
+						class="material-symbols-outlined text-primary-container"
+						>security</span
+					>
+					<span class="font-bold">Security First</span>
+				</div>
+				<div
+					class="px-6 py-3 bg-surface-container-high rounded-full flex items-center gap-3 border border-outline-variant/20"
+				>
+					<span
+						class="material-symbols-outlined text-primary-container"
+						>bolt</span
+					>
+					<span class="font-bold">Optimization</span>
+				</div>
+				<div
+					class="px-6 py-3 bg-surface-container-high rounded-full flex items-center gap-3 border border-outline-variant/20"
+				>
+					<span
+						class="material-symbols-outlined text-primary-container"
+						>support_agent</span
+					>
+					<span class="font-bold">24/7 Tactical Support</span>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Servicios: Detailed Grid -->
+	<section class="py-24 bg-surface-container-low" id="servicios">
+		<div class="container mx-auto px-8">
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div
+					class="p-10 bg-surface rounded-xl border border-outline-variant/10 hover:shadow-2xl transition-all"
+				>
+					<h4
+						class="text-sm font-mono text-primary-container uppercase mb-4 tracking-widest"
+					>
+						Audit
+					</h4>
+					<h3 class="text-2xl font-bold mb-4">Security Audit</h3>
+					<p class="text-on-surface-variant mb-6 text-sm">
+						Escaneo profundo de vulnerabilidades, inyecciones de
+						código y debilidades estructurales.
+					</p>
+					<button
+						class="text-primary-container flex items-center gap-2 text-sm font-bold group"
+					>
+						Saber más <span
+							class="material-symbols-outlined group-hover:translate-x-2 transition-transform"
+							>arrow_forward</span
+						>
+					</button>
+				</div>
+				<div
+					class="p-10 bg-surface rounded-xl border border-outline-variant/10 hover:shadow-2xl transition-all"
+				>
+					<h4
+						class="text-sm font-mono text-primary-container uppercase mb-4 tracking-widest"
+					>
+						Build
+					</h4>
+					<h3 class="text-2xl font-bold mb-4">Web Development</h3>
+					<p class="text-on-surface-variant mb-6 text-sm">
+						Desarrollo ágil orientado a conversión y seguridad desde
+						el código base.
+					</p>
+					<button
+						class="text-primary-container flex items-center gap-2 text-sm font-bold group"
+					>
+						Saber más <span
+							class="material-symbols-outlined group-hover:translate-x-2 transition-transform"
+							>arrow_forward</span
+						>
+					</button>
+				</div>
+				<div
+					class="p-10 bg-surface rounded-xl border border-outline-variant/10 hover:shadow-2xl transition-all"
+				>
+					<h4
+						class="text-sm font-mono text-primary-container uppercase mb-4 tracking-widest"
+					>
+						Speed
+					</h4>
+					<h3 class="text-2xl font-bold mb-4">Speed Optimization</h3>
+					<p class="text-on-surface-variant mb-6 text-sm">
+						Llevamos tu Core Web Vitals al 100%. Velocidad que
+						impacta en el SEO.
+					</p>
+					<button
+						class="text-primary-container flex items-center gap-2 text-sm font-bold group"
+					>
+						Saber más <span
+							class="material-symbols-outlined group-hover:translate-x-2 transition-transform"
+							>arrow_forward</span
+						>
+					</button>
+				</div>
+				<div
+					class="p-10 bg-surface rounded-xl border border-outline-variant/10 hover:shadow-2xl transition-all"
+				>
+					<h4
+						class="text-sm font-mono text-primary-container uppercase mb-4 tracking-widest"
+					>
+						Care
+					</h4>
+					<h3 class="text-2xl font-bold mb-4">Maintenance</h3>
+					<p class="text-on-surface-variant mb-6 text-sm">
+						Actualizaciones proactivas, backups diarios y monitoreo
+						constante de uptime.
+					</p>
+					<button
+						class="text-primary-container flex items-center gap-2 text-sm font-bold group"
+					>
+						Saber más <span
+							class="material-symbols-outlined group-hover:translate-x-2 transition-transform"
+							>arrow_forward</span
+						>
+					</button>
+				</div>
+				<div
+					class="p-10 bg-surface rounded-xl border border-outline-variant/10 hover:shadow-2xl transition-all lg:col-span-2"
+				>
+					<div
+						class="flex flex-col md:flex-row gap-8 h-full items-center"
+					>
+						<div class="flex-1">
+							<h4
+								class="text-sm font-mono text-primary-container uppercase mb-4 tracking-widest"
+							>
+								Infra
+							</h4>
+							<h3 class="text-2xl font-bold mb-4">
+								Server Configuration
+							</h3>
+							<p class="text-on-surface-variant mb-6 text-sm">
+								Configuramos y blindamos tu hosting, VPS o
+								servidor dedicado para máximo rendimiento y
+								aislamiento.
+							</p>
+							<button
+								class="text-primary-container flex items-center gap-2 text-sm font-bold group"
+							>
+								Consultar ahora <span
+									class="material-symbols-outlined group-hover:translate-x-2 transition-transform"
+									>arrow_forward</span
+								>
+							</button>
+						</div>
+						<div
+							class="w-full md:w-64 h-40 bg-surface-container-high rounded-lg flex items-center justify-center border border-outline-variant/20"
+						>
+							<span
+								class="material-symbols-outlined text-6xl text-primary-container/30"
+								>dns</span
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Cómo trabajamos: Step Flow -->
+	<section class="py-24 bg-surface" id="como-trabajamos">
+		<div class="container mx-auto px-8">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl font-bold mb-4">Cómo trabajamos</h2>
+				<p class="text-on-surface-variant">
+					Nuestro protocolo táctico paso a paso
+				</p>
+			</div>
+			<div class="relative">
+				<!-- Progress Line -->
+				<div
+					class="absolute top-1/2 left-0 w-full h-0.5 bg-surface-container-highest hidden md:block -translate-y-1/2"
+				>
+				</div>
+				<div class="grid md:grid-cols-4 gap-8 relative z-10">
+					<!-- Step 1 -->
+					<div class="bg-surface p-6 text-center group">
+						<div
+							class="w-16 h-16 bg-surface-container mx-auto rounded-full flex items-center justify-center border-2 border-primary-container mb-6 group-hover:bg-primary-container group-hover:text-on-primary-container transition-all"
+						>
+							<span class="text-xl font-bold">01</span>
+						</div>
+						<h3 class="text-xl font-bold mb-2">Análisis</h3>
+						<p class="text-sm text-on-surface-variant">
+							Diagnosticamos tu situación actual y detectamos
+							brechas.
+						</p>
+					</div>
+					<!-- Step 2 -->
+					<div class="bg-surface p-6 text-center group">
+						<div
+							class="w-16 h-16 bg-surface-container mx-auto rounded-full flex items-center justify-center border-2 border-primary-container mb-6 group-hover:bg-primary-container group-hover:text-on-primary-container transition-all"
+						>
+							<span class="text-xl font-bold">02</span>
+						</div>
+						<h3 class="text-xl font-bold mb-2">Implementación</h3>
+						<p class="text-sm text-on-surface-variant">
+							Desarrollamos o corregimos con estándares de alta
+							calidad.
+						</p>
+					</div>
+					<!-- Step 3 -->
+					<div class="bg-surface p-6 text-center group">
+						<div
+							class="w-16 h-16 bg-surface-container mx-auto rounded-full flex items-center justify-center border-2 border-primary-container mb-6 group-hover:bg-primary-container group-hover:text-on-primary-container transition-all"
+						>
+							<span class="text-xl font-bold">03</span>
+						</div>
+						<h3 class="text-xl font-bold mb-2">Protección</h3>
+						<p class="text-sm text-on-surface-variant">
+							Blindamos la estructura contra amenazas externas.
+						</p>
+					</div>
+					<!-- Step 4 -->
+					<div class="bg-surface p-6 text-center group">
+						<div
+							class="w-16 h-16 bg-surface-container mx-auto rounded-full flex items-center justify-center border-2 border-primary-container mb-6 group-hover:bg-primary-container group-hover:text-on-primary-container transition-all"
+						>
+							<span class="text-xl font-bold">04</span>
+						</div>
+						<h3 class="text-xl font-bold mb-2">Optimización</h3>
+						<p class="text-sm text-on-surface-variant">
+							Ajustamos el rendimiento para una experiencia
+							fluida.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Final CTA -->
+	<section class="py-24 bg-primary-container text-on-primary-container">
+		<div class="container mx-auto px-8 text-center max-w-3xl">
+			<h2 class="text-4xl md:text-5xl font-bold mb-8">
+				Protege tu sitio hoy mismo.
+			</h2>
+			<p class="text-xl mb-12 opacity-90">
+				Solicita una auditoría gratuita o cotización y duerme tranquilo
+				sabiendo que tu negocio está en manos expertas.
+			</p>
+			<button
+				class="px-12 py-5 bg-[#0c1324] text-[#00FF41] rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-xl"
+			>
+				Empezar ahora
+			</button>
+		</div>
+	</section>
+</main>
+<!-- Footer Shell -->
+<footer
+	class="bg-[#0c1324] py-12 px-8 border-t border-[#191f31] font-['Inter'] text-sm"
+>
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+		<div class="space-y-4">
+			<div
+				class="font-['Space_Grotesk'] font-bold text-[#00FF41] text-2xl"
+			>
+				Onside
+			</div>
+			<p class="text-[#b9ccb2] max-w-xs">
+				Sistemas tácticos de seguridad y desarrollo. Elevando el
+				estándar digital para negocios ambiciosos.
+			</p>
+			<div class="flex gap-4">
+				<span class="material-symbols-outlined text-[#00FF41]"
+					>verified_user</span
+				>
+				<span class="material-symbols-outlined text-[#00FF41]"
+					>lock</span
+				>
+				<span class="material-symbols-outlined text-[#00FF41]"
+					>bolt</span
+				>
+			</div>
+		</div>
+		<div class="grid grid-cols-2 gap-4">
+			<div class="space-y-2">
+				<p
+					class="font-bold text-[#dce1fb] uppercase text-xs tracking-widest mb-4"
+				>
+					Contacto
+				</p>
+				<a
+					class="block text-[#b9ccb2] hover:text-[#00FF41] transition-colors"
+					href="#">WhatsApp</a
+				>
+				<a
+					class="block text-[#b9ccb2] hover:text-[#00FF41] transition-colors"
+					href="#">Email</a
+				>
+				<a
+					class="block text-[#b9ccb2] hover:text-[#00FF41] transition-colors"
+					href="#">Formulario</a
+				>
+			</div>
+			<div class="space-y-2">
+				<p
+					class="font-bold text-[#dce1fb] uppercase text-xs tracking-widest mb-4"
+				>
+					Legal
+				</p>
+				<a
+					class="block text-[#b9ccb2] hover:text-[#00FF41] transition-colors"
+					href="#">Privacidad</a
+				>
+				<a
+					class="block text-[#b9ccb2] hover:text-[#00FF41] transition-colors"
+					href="#">Términos</a
+				>
+			</div>
+		</div>
+		<div class="space-y-6">
+			<p
+				class="font-bold text-[#dce1fb] uppercase text-xs tracking-widest"
+			>
+				Newsletter Táctica
+			</p>
+			<div class="flex">
+				<input
+					class="bg-surface-container border-none focus:ring-1 focus:ring-primary-container rounded-l-lg w-full text-on-surface placeholder:text-on-surface-variant/50"
+					placeholder="email@ejemplo.com"
+					type="email"
+				/>
+				<button
+					class="bg-primary-container text-on-primary-container px-4 rounded-r-lg font-bold"
+					>Unirse</button
+				>
+			</div>
+			<p class="text-[10px] text-[#b9ccb2]/50">
+				© 2024 Onside Tactical Systems. All rights reserved.
+			</p>
+		</div>
+	</div>
+</footer>

@@ -1,0 +1,100 @@
+---
+// Componente Menu - Diseño limpio y moderno con Glassmorphism
+---
+
+<header class="main-header">
+  <div class="logo">
+    <a href="/">Onside</a>
+  </div>
+  <nav class="nav-links">
+    <a href="/">Inicio</a>
+    <a href="/about">Acerca de</a>
+    <a href="/services">Servicios</a>
+    <a href="/contact">Contacto</a>
+  </nav>
+</header>
+
+<style>
+  /* Importando una fuente moderna (opcional, pero mejora el diseño) */
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap");
+
+  .main-header {
+    font-family: "Inter", system-ui, sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: #111827;
+    background: linear-gradient(to right, #4f46e5, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo a:hover {
+    opacity: 0.8;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 0.25rem;
+    transition: color 0.3s ease;
+  }
+
+  /* Animación de subrayado en hover */
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, #4f46e5, #ec4899);
+    transition:
+      width 0.3s ease,
+      left 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: #111827;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  /* Responsivo: oculta el menú en móviles por ahora (se puede agregar un menú hamburguesa luego) */
+  @media (max-width: 640px) {
+    .main-header {
+      padding: 1rem;
+    }
+    .nav-links {
+      display: none;
+    }
+  }
+</style>
