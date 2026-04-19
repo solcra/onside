@@ -1,5 +1,5 @@
 ---
-
+import logoRolaps from "../assets/logo-rolaps.png";
 ---
 
 <!-- TopNavBar Shell -->
@@ -9,11 +9,10 @@
 	<div class="flex items-center gap-4">
 		<img
 			alt="Rolaps Logo"
-			class="h-10 w-auto"
+			class="h-16 w-auto"
 			data-alt="high-tech minimalist logo for Rolaps tactical security with neon green crosshair element on dark background"
-			src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR8mxcFILqEpfL1TzCSjHCUrhevG3RoEpPHiVzfC1WcLYQnnyPlb9dsTahmGMb5DAx3LDNUs8MlKxIA-Pz8E5shHPlYFwgbrmmfJzDnEAwlN51DU4ZLhoPVLcGZ4LVk0piPg6dgW_vOX-W6Up3jv2XCIx1EWDyfN4PnAhTjJwxbcXz41asZpk-Ipr602TXRO6TSGXsmYOodP6P2_b_UxPRvwpSEMUkqOWk-NWa9CiBB3F0EJ589Snrm8x3Y3eGfD2u6b7ZXb5JNg"
+			src={logoRolaps.src}
 		/>
-		<span class="text-2xl font-bold text-[#00FF41]">Rolaps</span>
 	</div>
 	<div class="hidden md:flex gap-8 items-center">
 		<a
@@ -31,11 +30,11 @@
 	</div>
 	<div class="flex gap-4 items-center">
 		<button
-			class="hidden lg:block px-5 py-2 rounded-full border border-outline-variant text-[#dce1fb] hover:bg-[#191f31] transition-all duration-300"
+			class="hidden lg:block px-5 py-2 rounded-full border border-outline-variant text-[#dce1fb] hover:bg-[#191f31] transition-all duration-300 btn-hablar-whatsapp"
 			>Hablar por WhatsApp</button
 		>
 		<button
-			class="px-6 py-2 bg-primary-container text-on-primary-container rounded-full font-bold glow-primary transition-all duration-200 active:scale-95"
+			class="px-6 py-2 bg-primary-container text-on-primary-container rounded-full font-bold glow-primary transition-all duration-200 active:scale-95 btn-solicitar-auditoria"
 			>Solicitar auditoría</button
 		>
 	</div>
@@ -87,12 +86,12 @@
 				</p>
 				<div class="flex flex-wrap gap-4 pt-4">
 					<button
-						class="px-8 py-4 bg-primary-container text-on-primary-container rounded-full font-bold text-lg glow-primary transition-all hover:-translate-y-1"
+						class="px-8 py-4 bg-primary-container text-on-primary-container rounded-full font-bold text-lg glow-primary transition-all hover:-translate-y-1 btn-solicitar-auditoria"
 					>
 						Solicitar auditoría
 					</button>
 					<button
-						class="px-8 py-4 bg-surface-container-highest text-on-surface rounded-full font-bold text-lg border border-outline-variant/30 transition-all hover:bg-surface-bright"
+						class="px-8 py-4 bg-surface-container-highest text-on-surface rounded-full font-bold text-lg border border-outline-variant/30 transition-all hover:bg-surface-bright btn-hablar-whatsapp"
 					>
 						Hablar por WhatsApp
 					</button>
@@ -558,7 +557,7 @@
 				sabiendo que tu negocio está en manos expertas.
 			</p>
 			<button
-				class="px-12 py-5 bg-[#0c1324] text-[#00FF41] rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-xl"
+				class="px-12 py-5 bg-[#0c1324] text-[#00FF41] rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-xl btn-solicitar-auditoria"
 			>
 				Empezar ahora
 			</button>
@@ -651,3 +650,29 @@
 		</div>
 	</div>
 </footer>
+
+<script>
+	const phone = "573218519880";
+
+	const whatsappBtns = document.querySelectorAll(".btn-hablar-whatsapp");
+	whatsappBtns.forEach((btn) => {
+		btn.addEventListener("click", (e) => {
+			e.preventDefault();
+			const message = encodeURIComponent(
+				"Hola, me gustaría hablar con un asesor sobre sus servicios tecnológicos.",
+			);
+			window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+		});
+	});
+
+	const auditoriaBtns = document.querySelectorAll(".btn-solicitar-auditoria");
+	auditoriaBtns.forEach((btn) => {
+		btn.addEventListener("click", (e) => {
+			e.preventDefault();
+			const message = encodeURIComponent(
+				"Hola, estoy interesado en solicitar una auditoría gratuita de mis sistemas.",
+			);
+			window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+		});
+	});
+</script>
