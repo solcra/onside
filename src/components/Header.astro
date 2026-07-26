@@ -1,0 +1,50 @@
+---
+import logoRolaps from "../assets/logo-rolaps.png";
+
+const pathname = Astro.url.pathname;
+const isHome = pathname === "/" || pathname === "";
+---
+
+<!-- TopNavBar Shell -->
+<nav
+	class="fixed top-0 w-full z-50 bg-[#0c1324] font-['Space_Grotesk'] tracking-tight flex justify-between items-center px-8 h-20 max-w-full mx-auto"
+>
+	<div class="flex items-center gap-4">
+		<a href="/" class="flex items-center">
+			<img
+				alt="Rolaps Logo"
+				class="h-16 w-auto"
+				data-alt="high-tech minimalist logo for Rolaps tactical security with neon green crosshair element on dark background"
+				src={logoRolaps.src}
+			/>
+		</a>
+	</div>
+	<div class="hidden md:flex gap-8 items-center">
+		<a
+			class={isHome ? "text-[#00FF41] border-b-2 border-[#00FF41] pb-1 hover:text-[#00FF41] transition-colors duration-300" : "text-[#dce1fb] hover:text-[#00FF41] transition-colors duration-300"}
+			href={isHome ? "#que-hacemos" : "/#que-hacemos"}>¿Qué hacemos?</a
+		>
+		<a
+			class="text-[#dce1fb] hover:text-[#00FF41] transition-colors duration-300"
+			href={isHome ? "#servicios" : "/#servicios"}>Servicios</a
+		>
+		<a
+			class="text-[#dce1fb] hover:text-[#00FF41] transition-colors duration-300"
+			href={isHome ? "#como-trabajamos" : "/#como-trabajamos"}>Cómo trabajamos</a
+		>
+		<a
+			class={pathname.includes("/clientes") ? "text-[#00FF41] border-b-2 border-[#00FF41] pb-1 hover:text-[#00FF41] transition-colors duration-300" : "text-[#dce1fb] hover:text-[#00FF41] transition-colors duration-300"}
+			href="/clientes">Clientes</a
+		>
+	</div>
+	<div class="flex gap-4 items-center">
+		<button
+			class="hidden lg:block px-5 py-2 rounded-full border border-outline-variant text-[#dce1fb] hover:bg-[#191f31] transition-all duration-300 btn-hablar-whatsapp"
+			>Hablar por WhatsApp</button
+		>
+		<button
+			class="px-6 py-2 bg-primary-container text-on-primary-container rounded-full font-bold glow-primary transition-all duration-200 active:scale-95 btn-solicitar-auditoria"
+			>Solicitar auditoría</button
+		>
+	</div>
+</nav>

@@ -1,22 +1,60 @@
 ---
 import Head from "../components/Head.astro";
-import Menu from "../components/Menu.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+export interface Props {
+    title?: string;
+    titleSeo?: string;
+    descripcionSeo?: string;
+    image?: string;
+}
+
+const { title, titleSeo, descripcionSeo, image } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<Head
-		title="Rolaps | Desarrollo Web Seguro, Optimización y Protección de Sitios"
-		titleSeo="Rolaps | Desarrollo Web Seguro, Optimización y Protección de Sitios"
-		descripcionSeo="En Rolaps desarrollamos sitios web seguros y optimizados, protegemos tu infraestructura digital y mejoramos el rendimiento de tu negocio online. Solicita tu auditoría hoy."
-		image="og-imagen.png"
+		title={title}
+		titleSeo={titleSeo}
+		descripcionSeo={descripcionSeo}
+		image={image}
 	/>
 	<body
 		class="selection:bg-primary-container selection:text-on-primary-container"
 	>
-		<!-- <Menu /> -->
+		<Header />
 		<main>
 			<slot />
 		</main>
+		<Footer />
+
+		<script>
+			const phone = "573218519880";
+
+			const whatsappBtns = document.querySelectorAll(".btn-hablar-whatsapp");
+			whatsappBtns.forEach((btn) => {
+				btn.addEventListener("click", (e) => {
+					e.preventDefault();
+					const message = encodeURIComponent(
+						"Hola, me gustaría hablar con un asesor sobre sus servicios tecnológicos.",
+					);
+					window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+				});
+			});
+
+			const auditoriaBtns = document.querySelectorAll(".btn-solicitar-auditoria");
+			auditoriaBtns.forEach((btn) => {
+				btn.addEventListener("click", (e) => {
+					e.preventDefault();
+					const message = encodeURIComponent(
+						"Hola, estoy interesado en solicitar una auditoría gratuita de mis sistemas.",
+					);
+					window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+				});
+			});
+		</script>
 	</body>
 </html>
+
