@@ -7,7 +7,7 @@ const isHome = pathname === "/" || pathname === "";
 
 <!-- TopNavBar Shell -->
 <nav
-	class="fixed top-0 w-full z-50 bg-[#0c1324] font-['Space_Grotesk'] tracking-tight flex justify-between items-center px-8 h-20 max-w-full mx-auto"
+	class="fixed top-0 w-full z-50 bg-[#0c1324] font-['Space_Grotesk'] tracking-tight flex justify-between items-center px-4 sm:px-8 h-20 max-w-full mx-auto"
 >
 	<div class="flex items-center gap-4">
 		<a href="/" class="flex items-center">
@@ -37,14 +37,121 @@ const isHome = pathname === "/" || pathname === "";
 			href="/clientes">Clientes</a
 		>
 	</div>
-	<div class="flex gap-4 items-center">
+	<div class="flex gap-2 sm:gap-4 items-center">
 		<button
 			class="hidden lg:block px-5 py-2 rounded-full border border-outline-variant text-[#dce1fb] hover:bg-[#191f31] transition-all duration-300 btn-hablar-whatsapp"
 			>Hablar por WhatsApp</button
 		>
 		<button
-			class="px-6 py-2 bg-primary-container text-on-primary-container rounded-full font-bold glow-primary transition-all duration-200 active:scale-95 btn-solicitar-auditoria"
+			class="hidden md:block px-4 py-2 sm:px-6 bg-primary-container text-on-primary-container rounded-full font-bold glow-primary transition-all duration-200 active:scale-95 btn-solicitar-auditoria text-sm sm:text-base"
+			>Solicitar auditoría</button
+		>
+		<!-- Botón de menú hamburguesa (sólo móvil) -->
+		<button
+			id="menu-toggle"
+			class="md:hidden p-2 text-[#dce1fb] hover:text-[#00FF41] transition-colors focus:outline-none flex items-center justify-center"
+			aria-label="Abrir menú"
+		>
+			<svg
+				class="w-8 h-8"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					id="menu-icon-path"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2.5"
+					d="M4 6h16M4 12h16M4 18h16"
+				></path>
+			</svg>
+		</button>
+	</div>
+</nav>
+
+<!-- Menú móvil (Overlay) -->
+<div
+	id="mobile-menu"
+	class="fixed inset-0 top-20 z-40 bg-[#0c1324]/95 backdrop-blur-md flex flex-col px-6 py-8 gap-6 md:hidden transition-all duration-300 opacity-0 -translate-y-4 pointer-events-none"
+>
+	<div class="flex flex-col gap-5 text-lg font-medium">
+		<a
+			class={isHome ? "text-[#00FF41] border-l-2 border-[#00FF41] pl-3 font-semibold transition-colors duration-300 font-headline" : "text-[#dce1fb] pl-3 hover:text-[#00FF41] transition-colors duration-300 font-headline"}
+			href={isHome ? "#que-hacemos" : "/#que-hacemos"}>¿Qué hacemos?</a
+		>
+		<a
+			class="text-[#dce1fb] pl-3 hover:text-[#00FF41] transition-colors duration-300 font-headline"
+			href={isHome ? "#servicios" : "/#servicios"}>Servicios</a
+		>
+		<a
+			class="text-[#dce1fb] pl-3 hover:text-[#00FF41] transition-colors duration-300 font-headline"
+			href={isHome ? "#como-trabajamos" : "/#como-trabajamos"}>Cómo trabajamos</a
+		>
+		<a
+			class={pathname.includes("/clientes") ? "text-[#00FF41] border-l-2 border-[#00FF41] pl-3 font-semibold transition-colors duration-300 font-headline" : "text-[#dce1fb] pl-3 hover:text-[#00FF41] transition-colors duration-300 font-headline"}
+			href="/clientes">Clientes</a
+		>
+	</div>
+	
+	<!-- Botones de acción móvil -->
+	<div class="flex flex-col gap-4 mt-auto mb-8">
+		<button
+			class="w-full px-5 py-3 rounded-full border border-outline-variant text-[#dce1fb] hover:bg-[#191f31] transition-all duration-300 btn-hablar-whatsapp text-center font-medium"
+			>Hablar por WhatsApp</button
+		>
+		<button
+			class="w-full px-6 py-3 bg-primary-container text-on-primary-container rounded-full font-bold glow-primary transition-all duration-200 active:scale-95 btn-solicitar-auditoria text-center"
 			>Solicitar auditoría</button
 		>
 	</div>
-</nav>
+</div>
+
+<script>
+	const menuToggle = document.getElementById('menu-toggle');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const menuIconPath = document.getElementById('menu-icon-path');
+
+	if (menuToggle && mobileMenu && menuIconPath) {
+		let isMenuOpen = false;
+
+		menuToggle.addEventListener('click', () => {
+			isMenuOpen = !isMenuOpen;
+			
+			if (isMenuOpen) {
+				// Abrir menú
+				mobileMenu.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+				mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+				
+				// Icono X
+				menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+				
+				// Bloquear scroll del body
+				document.body.classList.add('overflow-hidden');
+			} else {
+				// Cerrar menú
+				mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+				mobileMenu.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+				
+				// Icono Hamburguesa
+				menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+				
+				// Permitir scroll
+				document.body.classList.remove('overflow-hidden');
+			}
+		});
+
+		// Cerrar menú al hacer clic en enlaces
+		const menuLinks = mobileMenu.querySelectorAll('a');
+		menuLinks.forEach(link => {
+			link.addEventListener('click', () => {
+				isMenuOpen = false;
+				mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+				mobileMenu.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+				menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+				document.body.classList.remove('overflow-hidden');
+			});
+		});
+	}
+</script>
